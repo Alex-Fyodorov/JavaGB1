@@ -1,0 +1,4 @@
+2023-09-05 16:06 User entered the first operand = 3
+2023-09-05 16:06 User entered the operation = +
+2023-09-05 16:06 User entered the second operand = 2
+2023-09-05 16:06 Result is 5
