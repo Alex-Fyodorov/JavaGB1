@@ -23,11 +23,14 @@ public class PhoneBook {
 
     public String findKey(String number) {
         for (Map.Entry<String, List<String>> entry : phoneBook.entrySet()) {
-            for (String item : entry.getValue()) {
-                if (item.equals(number)) {
-                    return entry.getKey();
-                }
+            if (entry.getValue().contains(number)) {
+                return entry.getKey();
             }
+//            for (String item : entry.getValue()) {
+//                if (item.equals(number)) {
+//                    return entry.getKey();
+//                }
+//            }
         }
         return null;
     }
