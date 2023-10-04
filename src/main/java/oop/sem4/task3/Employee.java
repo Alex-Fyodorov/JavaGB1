@@ -1,4 +1,4 @@
-package oop.sem4;
+package oop.sem4.task3;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
