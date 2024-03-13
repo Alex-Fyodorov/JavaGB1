@@ -1,4 +1,4 @@
-package hw.hw101.writer;
+package javaone.hw1.writer;
 
 import java.io.FileWriter;
 import java.io.IOException;

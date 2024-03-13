@@ -1,7 +1,7 @@
-package hw.hw101.main;
+package javaone.hw1.main;
 
-import hw.hw101.reader.MyReader;
-import hw.hw101.writer.MyWriter;
+import javaone.hw1.reader.MyReader;
+import javaone.hw1.writer.MyWriter;
 
 import java.io.IOException;
 import java.util.List;

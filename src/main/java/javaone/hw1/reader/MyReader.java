@@ -1,4 +1,4 @@
-package hw.hw101.reader;
+package javaone.hw1.reader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
