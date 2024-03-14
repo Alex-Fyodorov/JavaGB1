@@ -11,9 +11,14 @@ public class Map {
     public static int size;
     public static int dotsToWin;
     public static char[][] map;
+    /*  Создаём переменную, которая показывает, когда
+     * пора начинать блокировать ходы игрока. */
+    public static int chekToLock;
+
 
     public static void init() {
         map = new char[size][size];
+        chekToLock = Math.round(0.6f * dotsToWin);
         completionMap();
     }
 
