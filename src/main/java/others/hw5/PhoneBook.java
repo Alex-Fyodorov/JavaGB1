@@ -1,4 +1,4 @@
-package hw5;
+package others.hw5;
 
 import java.util.*;
 import java.util.stream.Collectors;

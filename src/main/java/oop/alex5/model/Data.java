@@ -1,4 +1,4 @@
-package alex5.model;
+package oop.alex5.model;
 
 public interface Data {
     /** sum() - Функция суммирует число numberA и numberB

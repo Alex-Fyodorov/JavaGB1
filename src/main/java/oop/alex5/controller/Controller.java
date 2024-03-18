@@ -1,7 +1,7 @@
-package alex5.controller;
+package oop.alex5.controller;
 
-import alex5.service.Operations;
-import alex5.view.Text;
+import oop.alex5.service.Operations;
+import oop.alex5.view.Text;
 
 import java.util.Scanner;
 

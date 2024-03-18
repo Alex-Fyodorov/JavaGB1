@@ -1,4 +1,4 @@
-package hw6;
+package others.hw6;
 
 import java.util.*;
 

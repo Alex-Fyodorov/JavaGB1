@@ -1,4 +1,4 @@
-package hw5;
+package others.hw5;
 
 public class PhoneBookApp {
     public static void main(String[] args) {

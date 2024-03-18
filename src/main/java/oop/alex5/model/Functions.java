@@ -1,6 +1,6 @@
-package alex5.model;
+package oop.alex5.model;
 
-import alex5.view.Text;
+import oop.alex5.view.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

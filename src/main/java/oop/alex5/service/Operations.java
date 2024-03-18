@@ -1,8 +1,8 @@
-package alex5.service;
+package oop.alex5.service;
 
-import alex5.model.Functions;
-import alex5.view.CalculationView;
-import alex5.view.Text;
+import oop.alex5.model.Functions;
+import oop.alex5.view.CalculationView;
+import oop.alex5.view.Text;
 
 import java.util.Scanner;
 

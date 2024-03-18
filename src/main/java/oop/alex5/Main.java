@@ -1,6 +1,6 @@
-package alex5;
+package oop.alex5;
 
-import alex5.controller.Controller;
+import oop.alex5.controller.Controller;
 
 public class Main {
     public static void main(String[] args) {

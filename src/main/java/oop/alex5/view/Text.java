@@ -1,4 +1,4 @@
-package alex5.view;
+package oop.alex5.view;
 
 public class Text {
 
