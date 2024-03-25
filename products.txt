@@ -1,0 +1,7 @@
+1,Milk,89.35
+2,Bread,26.47
+3,Cheese,125.84
+4,Butter,137.66
+5,Potato,27.92
+6,Carrot,35.23
+7,Cucumber,54.14
