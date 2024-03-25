@@ -1,4 +1,4 @@
-package hw3;
+package javaone.hw3;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -78,8 +78,8 @@ public class CalculatorTest {
         List<Arguments> arguments = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 1000; i++) {
-            int a = random.nextInt(-100, 100);
-            int b = random.nextInt(-100, 100);
+            int a = random.nextInt(200) - 100;
+            int b = random.nextInt(200) - 100;
             arguments.add(Arguments.arguments(a, b, a / b));
         }
         return arguments.stream();

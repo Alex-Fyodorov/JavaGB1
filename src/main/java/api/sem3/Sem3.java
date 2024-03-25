@@ -28,7 +28,7 @@ public class Sem3 {
         Integer n = random.nextInt();
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            list.add(random.nextInt(100, 200));
+            list.add(random.nextInt(100) + 100);
         }
         //list.sort(Integer::compareTo);
         //Collections.sort(list);
