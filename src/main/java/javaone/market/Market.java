@@ -1,16 +1,19 @@
 package javaone.market;
 
+import javaone.market.exceptions.OrderNotFoundException;
 import javaone.market.exceptions.ProductNotFoundException;
 import javaone.market.exceptions.QuantityIsNegativeException;
 import javaone.market.exceptions.UserNotFoundException;
 import javaone.market.models.Order;
 import javaone.market.models.Product;
 import javaone.market.models.User;
-import javaone.market.repositories.OrderRepository;
-import javaone.market.repositories.ProductRepository;
-import javaone.market.repositories.UserRepository;
+import javaone.market.repositories.interfaces.OrderRepository;
+import javaone.market.repositories.interfaces.ProductRepository;
+import javaone.market.repositories.interfaces.UserRepository;
 import javaone.market.utils.DateChecker;
 import javaone.market.view.View;
+
+import java.util.List;
 
 public class Market {
     private final UserRepository userRepository;
@@ -53,6 +56,20 @@ public class Market {
         } catch (QuantityIsNegativeException e) {
             view.printString(e.getMessage());
         }
+    }
+
+    public Order findOrderById(int orderId) {
+        Order order = null;
+        try {
+            order =  orderRepository.findById(orderId);
+        } catch (OrderNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        return order;
+    }
+
+    public List<Order> getAll() {
+        return orderRepository.getAll();
     }
 
     public void printUsersAndProducts() {

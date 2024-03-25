@@ -1,4 +1,4 @@
-package javaone.market.repositories;
+package javaone.market.repositories.interfaces;
 
 import javaone.market.exceptions.UserNotFoundException;
 import javaone.market.models.User;

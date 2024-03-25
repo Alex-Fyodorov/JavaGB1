@@ -1,7 +1,8 @@
-package javaone.market.repositories;
+package javaone.market.repositories.in_memory;
 
 import javaone.market.exceptions.ProductNotFoundException;
 import javaone.market.models.Product;
+import javaone.market.repositories.interfaces.ProductRepository;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

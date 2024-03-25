@@ -1,17 +1,17 @@
 package javaone.market;
 
 import javaone.market.models.Order;
-import javaone.market.repositories.InMemoryOrderRepository;
-import javaone.market.repositories.InMemoryProductRepository;
-import javaone.market.repositories.InMemoryUserRepository;
+import javaone.market.repositories.in_files.InFileOrderRepository;
+import javaone.market.repositories.in_files.InFileProductRepository;
+import javaone.market.repositories.in_files.InFileUserRepository;
 import javaone.market.utils.DateChecker;
 import javaone.market.view.ConsoleView;
 
 public class MainApp {
 
     public static void main(String[] args) {
-        Market market = new Market(new InMemoryUserRepository(), new InMemoryProductRepository(),
-                new InMemoryOrderRepository(), new DateChecker(), new ConsoleView());
+        Market market = new Market(new InFileUserRepository(), new InFileProductRepository(),
+                new InFileOrderRepository(), new DateChecker(), new ConsoleView());
 
         market.printUsersAndProducts();
 
@@ -19,6 +19,16 @@ public class MainApp {
         market.addProductInOrder(order, "Milk", 1);
         market.addProductInOrder(order, "Bread", 1);
         market.addProductInOrder(order, "Cheese", 1);
-        System.out.println(order);
+        int orderId1 = order.getId();
+
+        order = market.createOrder("Jim");
+        market.addProductInOrder(order, "Butter", 1);
+        market.addProductInOrder(order, "Bread", 1);
+        market.addProductInOrder(order, "Potato", 2);
+        int orderId2 = order.getId();
+
+        System.out.println(market.findOrderById(orderId1));
+        System.out.println("===============================================");
+        System.out.println(market.findOrderById(orderId2));
     }
 }

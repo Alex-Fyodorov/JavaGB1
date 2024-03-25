@@ -1,14 +1,15 @@
-package javaone.market.repositories;
+package javaone.market.repositories.in_memory;
 
 import javaone.market.exceptions.UserNotFoundException;
 import javaone.market.models.Sex;
 import javaone.market.models.User;
+import javaone.market.repositories.interfaces.UserRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryUserRepository implements UserRepository{
+public class InMemoryUserRepository implements UserRepository {
     private final List<User> users;
     private static int count = 1;
 

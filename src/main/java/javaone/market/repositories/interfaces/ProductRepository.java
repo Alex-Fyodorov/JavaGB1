@@ -1,4 +1,4 @@
-package javaone.market.repositories;
+package javaone.market.repositories.interfaces;
 
 import javaone.market.exceptions.ProductNotFoundException;
 import javaone.market.models.Product;

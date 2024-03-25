@@ -7,8 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
-    private static int count = 1;
-    private final int id;
+    private int id;
     private final User user;
     private final LocalDate date;
     private final Map<Product, Integer> products;
@@ -16,7 +15,6 @@ public class Order {
     private BigDecimal sum;
 
     public Order(User user) {
-        this.id = count++;
         this.user = user;
         this.date = LocalDate.now();
         products = new HashMap<>();
@@ -24,8 +22,21 @@ public class Order {
         this.sum = BigDecimal.ZERO;
     }
 
+    public Order(int id, User user, LocalDate date, float ratio, BigDecimal sum) {
+        this.id = id;
+        this.user = user;
+        this.date = date;
+        this.ratio = ratio;
+        this.sum = sum;
+        this.products = new HashMap<>();
+    }
+
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public User getUser() {
