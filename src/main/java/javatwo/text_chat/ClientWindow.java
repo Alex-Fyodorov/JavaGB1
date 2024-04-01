@@ -1,10 +1,9 @@
-package javatwo.hw1;
+package javatwo.text_chat;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
 
-public class ClientWindow extends JFrame {
+public class ClientWindow extends JFrame implements Authable {
 
     private static final int WINDOW_HEIGHT = 555;
     private static final int WINDOW_WIDTH = 507;
@@ -19,8 +18,10 @@ public class ClientWindow extends JFrame {
     private final JTextArea textArea;
     private final JTextField textField;
 
+    private final ChatServer server;
 
     public ClientWindow() {
+        server = new Server(this);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(WINDOW_POSX, WINDOW_POSY);
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -37,14 +38,14 @@ public class ClientWindow extends JFrame {
         add(new JScrollPane(textArea), BorderLayout.CENTER);
 
         JPanel panel = new JPanel(new BorderLayout());
-        JButton sendButton = new JButton("Send");
-        sendButton.addActionListener(e -> sendMessage());
-        panel.add(sendButton, BorderLayout.EAST);
-
         textField = new JTextField();
-        textField.addActionListener(e -> sendMessage());
+        textField.addActionListener(e -> sendMessage(textField.getText()));
         panel.add(textField, BorderLayout.CENTER);
         add(panel, BorderLayout.SOUTH);
+
+        JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(e -> sendMessage(textField.getText()));
+        panel.add(sendButton, BorderLayout.EAST);
 
         JList<String> nickNameList = new JList<>();
         nickNameList.setListData(new String[] {" user1 ", " user2 ", " user3 "});
@@ -77,6 +78,8 @@ public class ClientWindow extends JFrame {
         fieldsPanel.add(portNumberField);
         loginPanel.add(fieldsPanel, BorderLayout.CENTER);
 
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
+
         JButton loginButton = new JButton("Login");
         loginButton.addActionListener(e -> {
             login = loginField.getText().strip();
@@ -85,56 +88,45 @@ public class ClientWindow extends JFrame {
             portNumber = Integer.parseInt(portNumberField.getText().strip());
             auth(login, password, ipAddress, portNumber);
         });
-        loginButton.setSize(getWidth(), 50);
-        loginPanel.add(loginButton, BorderLayout.SOUTH);
+        buttonPanel.add(loginButton);
+
+        JButton logoutButton = new JButton("Logout");
+        logoutButton.addActionListener(e -> server.callLogout());
+        buttonPanel.add(logoutButton);
+
+        loginPanel.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void sendMessage() {
-        if (textField.getText().isBlank()) {
+    private void sendMessage(String str) {
+        if (str.isBlank()) {
             return;
         }
-        String message = textField.getText() + "\n";
+        String message = str + "\n";
         textField.setText("");
         textArea.append(message);
         System.out.print(message);
-        try (BufferedWriter writer = new BufferedWriter(
-                new FileWriter("history.txt", true))) {
-            writer.write(message);
-            writer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        server.writeHistory(message);
     }
 
-    private void auth(String login, String password,
+    @Override
+    public void auth(String login, String password,
                       String ipAddress, int portNumber) {
         this.setTitle(login);
         System.out.println("login: " + login);
         System.out.println("password: " + password);
         System.out.println("ipAddress: " + ipAddress);
         System.out.println("portNumber: " + portNumber);
-        long count = countLinesOfHistory();
-        if (count > 0) {
-            try (BufferedReader reader = new BufferedReader(
-                    new FileReader("history.txt"))) {
-                count -= 100;
-                if(count < 0) count = 0;
-                reader.lines()
-                        .skip(count)
-                        .map(str -> str = str + "\n")
-                        .forEach(textArea::append);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        server.getHistory().forEach(textArea::append);
+        server.callLogin();
     }
 
-    private long countLinesOfHistory() {
-        try (BufferedReader reader = new BufferedReader(
-                new FileReader("history.txt"))) {
-            return reader.lines().count();
-        } catch (IOException e) {
-            return 0;
-        }
+    @Override
+    public void login(String str) {
+        sendMessage(str);
+    }
+
+    @Override
+    public void logout(String str) {
+        sendMessage(str);
     }
 }

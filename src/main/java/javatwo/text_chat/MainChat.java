@@ -1,8 +1,8 @@
-package javatwo.hw1;
+package javatwo.text_chat;
 
 public class MainChat {
     public static void main(String[] args) {
-        //new ServerWindow();
+        //new Server();
         new ClientWindow();
     }
 }
