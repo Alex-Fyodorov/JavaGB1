@@ -1,4 +1,4 @@
-package zhenyaslection.model;
+package zhenyaslection.patterns.model;
 
 import lombok.Getter;
 

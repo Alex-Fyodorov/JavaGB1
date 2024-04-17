@@ -1,15 +1,15 @@
-package zhenyaslection.model.interfaces;
+package zhenyaslection.patterns.model.interfaces;
 
-import zhenyaslection.model.ColoredPoint;
+import zhenyaslection.patterns.model.ColoredPoint;
 
-public class DefaultMovable implements Movable {
+public class ColoredMovable implements Movable {
 
     @Override
     public ColoredPoint move(ColoredPoint point, int deltaX, int deltaY) {
         return ColoredPoint.builder()
                 .setX(point.getX() + deltaX)
                 .setX(point.getY() + deltaY)
-                .setColor(point.getColor())
+                .setColor("strong red")
                 .setName(point.getName())
                 .setMovable(point.isMovable())
                 .build();

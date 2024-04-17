@@ -1,6 +1,6 @@
-package zhenyaslection.model.interfaces;
+package zhenyaslection.patterns.model.interfaces;
 
-import zhenyaslection.model.ColoredPoint;
+import zhenyaslection.patterns.model.ColoredPoint;
 
 public interface Movable {
     ColoredPoint move(ColoredPoint point, int deltaX, int deltaY);

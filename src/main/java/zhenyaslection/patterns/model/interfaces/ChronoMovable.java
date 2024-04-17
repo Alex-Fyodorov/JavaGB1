@@ -1,6 +1,6 @@
-package zhenyaslection.model.interfaces;
+package zhenyaslection.patterns.model.interfaces;
 
-import zhenyaslection.model.ColoredPoint;
+import zhenyaslection.patterns.model.ColoredPoint;
 
 public class ChronoMovable implements Movable {
     private final Movable movable;
