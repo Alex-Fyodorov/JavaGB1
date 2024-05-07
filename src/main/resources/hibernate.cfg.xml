@@ -29,6 +29,8 @@
 
         <mapping class="javathree.sem4.User"/>
         <mapping class="javathree.sem4.Animal"/>
+        <mapping class="javathree.hw4.Student"/>
+        <mapping class="javathree.hw4.Group"/>
 
     </session-factory>
 </hibernate-configuration>
