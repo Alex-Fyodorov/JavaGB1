@@ -10,3 +10,6 @@ public class Main {
         }
     }
 }
+
+// java -cp target/JavaGB1-1.0-SNAPSHOT.jar javatwo.hw6.MontyHallProblem
+
