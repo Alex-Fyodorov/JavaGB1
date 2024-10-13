@@ -1,4 +1,4 @@
-package javatwo.tictactoe;
+package tictactoe;
 
 import java.util.Random;
 
