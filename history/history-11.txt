@@ -1,0 +1,69 @@
+/authok JohnJohn вошёл в чат./l JohnJohn: sfsdfgsg/authok John
+John вошёл в чат.
+/l John
+John: fdgdghdgh
+John: dfghdfgh
+John: dfghdgh
+John: dfhgdf
+John: dfgh
+/authok John
+John вошёл в чат.
+John: fdgdghdgh
+John: dfghdfgh
+John: dfghdgh
+John: dfhgdf
+John: dfgh
+John вышел из чата.
+John вошёл в чат.
+/l John
+Bob вошёл в чат.
+/l John Bob
+Nick3 вошёл в чат.
+/l John Bob Nick3
+John: sfdsfgsdfg
+Bob: sfdgsdfgdg
+/l John Bob
+Nick3 вышел из чата.
+/l John
+Bob вышел из чата.
+/authok John
+John вошёл в чат.
+/l John
+/authok John
+John вошёл в чат.
+John вышел из чата.
+John вошёл в чат.
+/l John
+Bob вошёл в чат.
+/l John Bob
+Nick3 вошёл в чат.
+/l John Bob Nick3
+John: Привет всем!!!
+Nick3: А если по-японски?
+Bob: Да легко!
+Bob: 日曜日
+Nick3: Фигассе!
+/l John Bob
+Nick3 вышел из чата.
+/l John
+Bob вышел из чата.
+/authok John
+John вошёл в чат.
+/l John
+John: авыпывап
+/authok John
+John вошёл в чат.
+John: авыпывап
+John вышел из чата.
+John вошёл в чат.
+/l John
+John: asdfgsdfg
+/authok John
+John вошёл в чат.
+/l John
+John: sfsdfg
+John: /l
+/authok John
+John вошёл в чат.
+/l John
+John: ывапывап

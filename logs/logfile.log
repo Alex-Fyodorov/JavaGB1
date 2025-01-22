@@ -1,0 +1,27 @@
+INFO  2023-03-03 12:02:40 [Thread-2] lesson13.hw2.Car (Car.java:47) - winner = 3-Jim
+INFO  2023-03-03 12:03:41 [Thread-1] lesson13.hw2.Car (Car.java:48) - winner = 2-Bob
+INFO  2023-03-03 12:03:41 [Thread-3] lesson13.hw2.Car (Car.java:48) - winner = 2-Bob
+INFO  2023-03-03 12:03:44 [Thread-2] lesson13.hw2.Car (Car.java:48) - winner = 2-Bob
+INFO  2023-03-03 12:03:44 [Thread-0] lesson13.hw2.Car (Car.java:48) - winner = 2-Bob
+INFO  2023-03-03 16:55:25 [main] lesson10.server.DataBaseAuthService (DataBaseAuthService.java:107) - Auth service is running.
+INFO  2023-03-03 16:55:25 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 16:55:56 [main] lesson10.server.MyServer (MyServer.java:61) - Клиент подключился
+INFO  2023-03-03 16:55:56 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 17:00:49 [main] lesson10.server.MyServer (MyServer.java:61) - Клиент подключился
+INFO  2023-03-03 17:00:49 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 17:02:04 [main] lesson10.server.DataBaseAuthService (DataBaseAuthService.java:107) - Auth service is running.
+INFO  2023-03-03 17:02:04 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 17:02:10 [main] lesson10.server.MyServer (MyServer.java:61) - Клиент подключился
+INFO  2023-03-03 17:02:10 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 17:02:18 [pool-2-thread-1] lesson10.server.ClientHandler (ClientHandler.java:111) - Сообщение от John: sfsdfg
+INFO  2023-03-03 17:02:43 [pool-2-thread-1] lesson10.server.ClientHandler (ClientHandler.java:111) - Сообщение от John: /l
+INFO  2023-03-03 17:07:39 [main] lesson10.server.DataBaseAuthService (DataBaseAuthService.java:107) - Auth service is running.
+INFO  2023-03-03 17:07:39 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 17:08:16 [main] lesson10.server.MyServer (MyServer.java:61) - Клиент подключился
+INFO  2023-03-03 17:08:16 [main] lesson10.server.MyServer (MyServer.java:58) - Сервер ожидает подключения
+INFO  2023-03-03 17:08:25 [pool-2-thread-1] lesson10.server.ClientHandler (ClientHandler.java:112) - Сообщение от John: ывапывап
+ERROR 2023-03-03 17:08:36 [pool-2-thread-1] lesson10.server.ClientHandler (ClientHandler.java:50) - разрыв соединения
+INFO  2023-03-15 17:53:38 [Thread-0] lesson13.hw2.Car (Car.java:48) - winner = 1-John
+INFO  2023-03-15 17:53:38 [Thread-1] lesson13.hw2.Car (Car.java:48) - winner = 1-John
+INFO  2023-03-15 17:53:42 [Thread-2] lesson13.hw2.Car (Car.java:48) - winner = 1-John
+INFO  2023-03-15 17:53:43 [Thread-3] lesson13.hw2.Car (Car.java:48) - winner = 1-John

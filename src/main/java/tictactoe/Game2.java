@@ -1,44 +1,240 @@
 package tictactoe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class Game {
+public class Game2 {
 
     private static final char DOT_EMPTY = '.';
     private static final char DOT_X = 'X';
     private static final char DOT_O = 'O';
     private final int size;
     private final int dotsToWin;
+    private int stepCount;
+    private final List<Raw> raws;
     private final char[][] map;
     /*  Создаём переменную, которая показывает, когда
      * пора начинать блокировать ходы игрока. */
     public final int checkToLock;
 
-    public Game(int size, int dotsToWin) {
+    public Game2(int size, int dotsToWin) {
         this.size = size;
         this.dotsToWin = dotsToWin;
         this.checkToLock = Math.round(0.6f * dotsToWin);
+        this.stepCount = 0;
+        this.raws = new ArrayList<>();
+        toFillRawsArray();
         this.map = new char[size][size];
         completionMap();
     }
 
     /**
-     * Первичное заполнение поля точками.
+     * Заполнение массива строк.
      */
-    private void completionMap() {
+    private void toFillRawsArray() {
+        for (int i = 0; i < size * 2 + 2; i++) {
+            raws.add(new Raw(size));
+        }
+        for (int i = 1; i <= size - dotsToWin; i++) {
+            for (int j = 0; j < 4; j++) {
+                raws.add(new Raw(size - i));
+            }
+        }
+        toFillRaws();
+    }
+
+    /**
+     * Заполнение строк.
+     */
+    private void toFillRaws() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                map[i][j] = DOT_EMPTY;
+                Point point = new Point(i, j, DOT_EMPTY);
+                raws.get(j).getPointList().add(point);
+                raws.get(size + i).getPointList().add(point);
+                if (i == j) {
+                    raws.get(size * 2).getPointList().add(point);
+                }
+                if (i == size - j - 1) {
+                    raws.get(size * 2 + 1).getPointList().add(point);
+                }
+            }
+        }
+        for (int i = 1; i <= size - dotsToWin; i++) {
+            for (int j = 0; j < size - i; j++) {
+                Point point1 = raws.get(j + 1).getPointList().get(j);
+                raws.get(size * 2 + 4 * (i - 1) + 2).getPointList().add(point1);
+                Point point2 = raws.get(j).getPointList().get(j + 1);
+                raws.get(size * 2 + 4 * (i - 1) + 3).getPointList().add(point2);
+                Point point3 = raws.get(size - 1 - j - i).getPointList().get(j);
+                raws.get(size * 2 + 4 * (i - 1) + 4).getPointList().add(point3);
+                Point point4 = raws.get(size - 1 - j).getPointList().get(j + i);
+                raws.get(size * 2 + 4 * (i - 1) + 5).getPointList().add(point4);
             }
         }
     }
 
     /**
-     * Печать поля.
+     * Изменение поля в результате хода игрока или ИИ.
+     *
+     * @param x   координата Х
+     * @param y   координата Y
+     * @param dot вставляемый символ
+     */
+    private void putPoint(int x, int y, char dot) {
+        raws.get(y).putChar(x, dot);
+        stepCount++;
+        completionMap(); // TODO ?
+    }
+
+    /**
+     * Процесс проверяет, выиграл ли последний ходивший игрок.
+     *
+     * @param dot фишка игрока или компуктера
+     * @return true, если победа
+     */
+    private boolean chekWinner(char dot) {
+        for (Raw raw : raws) {
+            int count = 0;
+            List<Point> array = raw.getPointList();
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i).getBody() == dot) count++;
+                else count = 0;
+            }
+            if (count >= dotsToWin) return true;
+        }
+        return false;
+    }
+
+    /**
+     * Проверяем, всё ли поле заполнено.
+     */
+    private boolean isFieldFull() {
+        return stepCount == size * size;
+    }
+
+    /**
+     * Проверка ИИ на возможность победить одним ходом.
+     * Если такая возможность есть, делает ход.
+     * @return true, если ИИ побеждает одним ходом.
+     */
+    private boolean checkToWin() {
+        Point requiredPoint;
+        for (Raw raw : raws) {
+            int part1 = 0;
+            int part2 = 0;
+            requiredPoint = null;
+            List<Point> pointList = raw.getPointList();
+            for (Point point : pointList) {
+                if (point.getBody() == DOT_O) part2++;
+                else if (point.getBody() == DOT_EMPTY) {
+                    part1 = part2;
+                    part2 = 0;
+                    requiredPoint = point;
+                } else if (point.getBody() == DOT_X) {
+                    part1 = 0;
+                    part2 = 0;
+                    requiredPoint = null;
+                }
+                // В случае возможности победы ИИ делает ход.
+                if (part1 + part2 >= dotsToWin - 1 && requiredPoint != null) {
+                    putPoint(requiredPoint.getX(), requiredPoint.getY(), DOT_O);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //============================================================================
+
+    /**
+     * Непосредственно игра. После каждого хода происходит
+     * отсылка к процессу,который проверяет, выиграл ли
+     * кто-нибудь, и есть ли ещё место на поле.
+     */
+    public int game2(int x, int y) { // TODO rename
+        //System.out.printf("game: x = %d, y = %d\n", x, y);
+        if (isCoordNotValid(x, y)) return 4; // TODO rewrite
+        putPoint(x, y, DOT_X);
+        if (chekWinner(DOT_X)) return 1;
+        if (isFieldFull()) return 3;
+        moveOfArtifIntel2(); // TODO rename
+        if (chekWinner(DOT_O)) return 2;
+        if (isFieldFull()) return 3;
+        return 0;
+    }
+
+    private void moveOfArtifIntel2() {
+        if (checkToWin()) return;
+    }
+
+    private void lock() {
+        // Находим самую длинную последовательность фишек игрока в каждой строке.
+        List<Integer> maxCountList = new ArrayList<>();
+        for (Raw raw : raws) {
+            maxCountList.add(counterOfDots(raw.getPointList(), DOT_X));
+        }
+
+        // Определяем порядок в коттором будем просматривать строки для блокировки.
+        int max = 0;
+        int index = 0;
+        List<Integer> indexes = new ArrayList<>();
+        for (int i = 0; i < maxCountList.size(); i++) {
+            for (int j = 0; j < maxCountList.size(); j++) {
+                if (maxCountList.get(j) > max) {
+                    max = maxCountList.get(j);
+                    index = j;
+                }
+            }
+            if (max == 0) break;
+            indexes.add(index);
+            max = 0;
+            maxCountList.set(index, -1);
+        }
+
+        // TODO not ended
+    }
+
+    /**
+     * Метод считает количество фишек определённого вида в строке.
+     *
+     * @param pointList массив, составляющий строку
+     * @param dot       искомый вид фишек
+     * @return количество нужных фишек в строке
+     */
+    private int counterOfDots(List<Point> pointList, char dot) {
+        int count = 0;
+        int max = 0;
+        for (int i = 0; i < pointList.size(); i++) {
+            if (pointList.get(i).getBody() == dot) {
+                count++;
+                if (count > max) max = count;
+            } else count = 0;
+        }
+        return max;
+    }
+
+
+    /**
+     * Заполнение поля.
+     */
+    private void completionMap() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                map[i][j] = raws.get(i + size).getPointList().get(j).getBody();
+            }
+        }
+    }
+
+    /**
+     * Возврат поля.
      */
     public char[][] getMap() {
         return map;
     }
+
 
     /**
      * Непосредственно игра. После каждого хода происходит
@@ -46,7 +242,8 @@ public class Game {
      * кто-нибудь, и есть ли ещё место на поле.
      */
     public int game(int x, int y) {
-        if (isCoordValid(x, y)) return 4;
+        //System.out.printf("game: x = %d, y = %d\n", x, y);
+        if (isCoordNotValid(x, y)) return 4;
         playersMove(x, y);
         if (chekWinner(DOT_X)) return 1;
         if (isFieldFull()) return 3;
@@ -75,88 +272,26 @@ public class Game {
         return count;
     }
 
-    /**
-     * Ищем победителя по диагоналям.
-     *
-     * @param dot фишка игрока
-     * @return true, если победил
-     */
-    private boolean isWinDiagon(char dot) {
-        for (int i = 0; i <= size - dotsToWin; i++) {
-            int[] count = new int[4];
-            for (int j = 0; j < size - i; j++) {
-                count[0] = counterOfChips(j + i, j, count[0], dot);
-                count[1] = counterOfChips(j, j + i, count[1], dot);
-                count[2] = counterOfChips(size - 1 - j - i, j, count[2], dot);
-                count[3] = counterOfChips(size - 1 - j, j + i, count[3], dot);
-                for (int k = 0; k <= 3; k++) {
-                    if (count[k] >= dotsToWin) {
-                        return true;
-                    }
-                }
-            }
+    private void printMap() {
+        System.out.println("====================================");
+        for (int i = 0; i <= size; i++) {
+            System.out.print(i + " ");
         }
-        return false;
-    }
-
-//    private void printMap() {
-//        for (int i = 0; i <= size; i++) {
-//            System.out.print(i + " ");
-//        }
-//        System.out.println();
-//        for (int i = 0; i < size; i++) {
-//            System.out.print(i + 1 + " ");
-//            for (int j = 0; j < size; j++) {
-//                System.out.print(map[j][i] + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-
-    /**
-     * Ищем победителя по вертикалям и горизонталям.
-     *
-     * @param dot фишка игрока
-     * @return true, если победил
-     */
-    private boolean isWinVertAndHoriz(char dot) {
+        System.out.println();
         for (int i = 0; i < size; i++) {
-            int xWin = 0;
-            int yWin = 0;
+            System.out.print(i + 1 + " ");
             for (int j = 0; j < size; j++) {
-                xWin = counterOfChips(i, j, xWin, dot);
-                yWin = counterOfChips(j, i, yWin, dot);
-                if (xWin >= dotsToWin || yWin >= dotsToWin) {
-                    return true;
-                }
+                System.out.print(map[j][i] + " ");
             }
+            System.out.println();
         }
-        return false;
+        System.out.println("====================================");
+        for (int i = 1; i <= raws.size(); i++) {
+            System.out.println("" + i + " " + raws.get(i - 1).getPointList().toString());
+        }
+        System.out.println("====================================");
     }
 
-    /**
-     * Процесс проверяет, выиграл ли последний ходивший игрок,
-     * и есть ли ещё место на поле.
-     *
-     * @param dot фишка игрока или компуктера
-     * @return true, если победа
-     */
-    private boolean chekWinner(char dot) {
-        // Проверяем победу по вертикалям, горизонталям и диагоналям.
-        return isWinVertAndHoriz(dot) || isWinDiagon(dot);
-    }
-
-    // Проверяем, всё ли поле заполнено.
-    private boolean isFieldFull() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (map[i][j] == DOT_EMPTY) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     /**
      * Проверяет строчку, столбец или диагональ и в случае
@@ -252,6 +387,8 @@ public class Game {
      * Если такой возможности или необходимости нет, делается ход наобум.
      */
     private void moveOfArtifIntel() {
+        if (checkToWin()) return;
+        lock();
 
         // Проверяем вертикали и горизонтали
         for (int i = 0; i < size; i++) {
@@ -286,8 +423,10 @@ public class Game {
         do {
             x = rand.nextInt(size);
             y = rand.nextInt(size);
-        } while (isCoordValid(x, y));
-        map[x][y] = DOT_O;
+        } while (isCoordNotValid(x, y));
+        //map[x][y] = DOT_O;
+        putPoint(x, y, DOT_O);
+        printMap();
         getMap();
     }
 
@@ -306,8 +445,9 @@ public class Game {
 
 
     private void playersMove(int x, int y) {
-        map[x][y] = DOT_X;
-        System.out.println("x=" + x + ", y=" + y);
+        //map[x][y] = DOT_X;
+        putPoint(x, y, DOT_X);
+        printMap();
     }
 
     /**
@@ -317,7 +457,7 @@ public class Game {
      * @param y координата Y
      * @return возвращает false, если координаты валидны
      */
-    private boolean isCoordValid(int x, int y) {
+    private boolean isCoordNotValid(int x, int y) {
         if (x < 0 || x > size - 1 || y < 0 || y > size - 1) {
             return true;
         }

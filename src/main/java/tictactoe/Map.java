@@ -12,7 +12,7 @@ public class Map extends JPanel {
     private int cellWidth;
     private int cellHeight;
     private int size = 1;
-    private Game game;
+    private Game2 game;
     private char[][] map;
     private int answer = 0;
 
@@ -28,7 +28,7 @@ public class Map extends JPanel {
 
     public void startNewGame(int mode, int fieldSize, int wLen) {
         size = fieldSize;
-        game = new Game(fieldSize, wLen);
+        game = new Game2(fieldSize, wLen);
         map = game.getMap();
         //System.out.printf("Mode: %d;\nSize: x = %d, y = %d;\nWin Length: %d\n",
         //        mode, fieldSize, fieldSize, wLen);

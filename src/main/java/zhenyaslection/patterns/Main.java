@@ -1,23 +1,29 @@
 package zhenyaslection.patterns;
 
-import zhenyaslection.patterns.model.ColoredPoint;
-import zhenyaslection.patterns.model.Point;
-import zhenyaslection.patterns.model.PointFactory;
-import zhenyaslection.patterns.model.interfaces.Movable;
+import differents.patterns.interfaces.Movable;
+import differents.patterns.models.ColoredPoint;
+import differents.patterns.models.Point;
+import differents.patterns.models.PointFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Неизменяемый объект без new.
+        // статическая инициализация
         Point point = Point.startPoint();
 
-        // Неизменяемый объект с любым набором полей.
-        ColoredPoint coloredPoint = ColoredPoint.builder().setX(0).setY(0).setName("SinglePoint").build();
+        // билдер или фабричный метод
+        ColoredPoint coloredPoint = ColoredPoint.builder()
+                .setX(1)
+                .setY(1)
+                .setName("qwerty")
+                .setColor("black")
+                .build();
 
+        // фабрика
         ColoredPoint red = PointFactory.startAtRed();
 
+        // интерфейс
         Movable movable = PointFactory.getMovable();
-
         red = movable.move(red, 10, 10);
     }
 }
