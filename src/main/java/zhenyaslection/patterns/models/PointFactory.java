@@ -1,6 +1,6 @@
 package zhenyaslection.patterns.models;
 
-import differents.patterns.interfaces.*;
+import zhenyaslection.patterns.interfaces.*;
 
 public class PointFactory {
 

@@ -1,4 +1,4 @@
-package differents.swing.pane;
+package swing.pane;
 
 import java.awt.Color;
 

@@ -1,4 +1,4 @@
-package differents.swing.layouts;
+package swing.layouts;
 
 // Пример диалогового окна входа в систему
 import javax.swing.*;
@@ -59,10 +59,10 @@ public class LoginDialog extends JDialog
 		grid.add(btnCancel);
 		flow.add(grid);
 		// Выравнивание вложенных панелей по горизонтали
-		BoxLayoutUtils.setGroupAlignmentX(new JComponent[] { name, password, panel, flow }, 
+		BoxLayoutUtils.setGroupAlignmentX(new JComponent[] { name, password, panel, flow },
 				                          Component.LEFT_ALIGNMENT);
 		// Выравнивание вложенных панелей по вертикали
-		BoxLayoutUtils.setGroupAlignmentY(new JComponent[] { tfLogin, tfPassword, nameLabel, passwrdLabel}, 
+		BoxLayoutUtils.setGroupAlignmentY(new JComponent[] { tfLogin, tfPassword, nameLabel, passwrdLabel},
 				                          Component.CENTER_ALIGNMENT);
 		// Определение размеров надписей к текстовым полям
 		GUITools.makeSameSize(new JComponent[] { nameLabel, passwrdLabel } );

@@ -1,4 +1,4 @@
-package differents.swing.windows;
+package swing.windows;
 
 // Создание специальных оформлений окон Swing
 

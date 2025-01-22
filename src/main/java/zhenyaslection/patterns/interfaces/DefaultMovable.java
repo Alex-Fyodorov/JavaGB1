@@ -1,6 +1,6 @@
 package zhenyaslection.patterns.interfaces;
 
-import differents.patterns.models.ColoredPoint;
+import zhenyaslection.patterns.models.ColoredPoint;
 
 public class DefaultMovable implements Movable {
 

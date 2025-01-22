@@ -1,4 +1,4 @@
-package differents.swing.table;
+package swing.table;
 
 // Пример работы с простыми таблицами JTable
 

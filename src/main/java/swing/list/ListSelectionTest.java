@@ -1,4 +1,4 @@
-package differents.swing.list;
+package swing.list;
 
 // Пример использования различных режимов выделения
 import javax.swing.*;

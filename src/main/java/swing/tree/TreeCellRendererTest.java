@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 // Пример использования стандартного отображащего объекта DefaultTreeCellRenderer
 import javax.swing.*;

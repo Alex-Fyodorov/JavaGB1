@@ -1,4 +1,4 @@
-package differents.swing.list;
+package swing.list;
 
 // Использование списков JList и модели списка DefaultListModel
 

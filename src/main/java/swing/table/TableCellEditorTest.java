@@ -1,4 +1,4 @@
-package differents.swing.table;
+package swing.table;
 
 // Применение редактора ячеек таблицы CellEditor
 

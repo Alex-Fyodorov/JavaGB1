@@ -1,4 +1,4 @@
-package differents.swing.text;
+package swing.text;
 
 // Текстовое поле с поддержкой автозаполнения
 

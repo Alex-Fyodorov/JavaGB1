@@ -1,4 +1,4 @@
-package differents.swing.windows;
+package swing.windows;
 
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;

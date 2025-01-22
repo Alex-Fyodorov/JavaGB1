@@ -1,4 +1,4 @@
-package differents.swing.dialog;
+package swing.dialog;
 
 // Пример использования диалоговых окон JOptionPane
 

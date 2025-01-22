@@ -1,4 +1,4 @@
-package differents.swing.layouts;
+package swing.layouts;
 
 // Пример разработки менеджера вертикального расположения компонентов
 

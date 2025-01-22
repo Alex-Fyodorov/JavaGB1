@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 // Использование модели выделения дерева TreeSelectionModel
 import javax.swing.*;

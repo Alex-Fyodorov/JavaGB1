@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 // Дерево с отображаением флажков в листьях 
 import java.awt.*;
@@ -39,7 +39,7 @@ public class CheckBoxTree extends JTree
 			}
 			Object data = ((DefaultMutableTreeNode)value).getUserObject();
 			// Проверка, являются ли данные CheckBoxElement
-			if (data instanceof CheckBoxElement ) {
+			if (data instanceof CheckBoxElement) {
 				CheckBoxElement element = (CheckBoxElement)data;
 				// Настройка флажка и текста
 				setSelected(element.selected);

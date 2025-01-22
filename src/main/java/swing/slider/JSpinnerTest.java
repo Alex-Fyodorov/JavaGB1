@@ -1,4 +1,4 @@
-package differents.swing.slider;
+package swing.slider;
 
 //Использование счетчиков JSpinner и моделей SpinnerModel 
 

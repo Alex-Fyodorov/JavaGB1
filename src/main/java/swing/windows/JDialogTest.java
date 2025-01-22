@@ -1,4 +1,4 @@
-package differents.swing.windows;
+package swing.windows;
 
 /**
  * Тестовый класс создания диалоговых окон

@@ -1,4 +1,4 @@
-package differents.swing.buttons;
+package swing.buttons;
 
 // Класс представления различного внешнего вида кнопок JButton
 

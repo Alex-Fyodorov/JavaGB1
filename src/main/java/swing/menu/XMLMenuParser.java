@@ -1,4 +1,4 @@
-package differents.swing.menu;
+package swing.menu;
 
 import java.util.HashMap;
 import java.util.LinkedList;

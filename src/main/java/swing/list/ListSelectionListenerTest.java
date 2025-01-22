@@ -1,4 +1,4 @@
-package differents.swing.list;
+package swing.list;
 
 // Пример тестирования слушателя ListSelectionListener
 

@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 import javax.swing.*;
 import javax.swing.tree.*;

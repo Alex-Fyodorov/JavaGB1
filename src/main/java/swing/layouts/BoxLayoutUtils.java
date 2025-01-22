@@ -1,4 +1,4 @@
-package differents.swing.layouts;
+package swing.layouts;
 
 // Класс для работы с менеджером расположением
 import javax.swing.*;

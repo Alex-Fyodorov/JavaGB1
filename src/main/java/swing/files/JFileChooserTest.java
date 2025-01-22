@@ -1,4 +1,4 @@
-package differents.swing.files;
+package swing.files;
 
 // Пример использования диалоговых окон работы с файлами и директориями
 

@@ -1,6 +1,6 @@
 package zhenyaslection.patterns.interfaces;
 
-import differents.patterns.models.ColoredPoint;
+import zhenyaslection.patterns.models.ColoredPoint;
 
 public class CompositeMovable implements Movable {
     private final Movable uncolored;

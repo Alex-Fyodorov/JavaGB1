@@ -1,4 +1,4 @@
-package differents.swing.text;
+package swing.text;
 
 // Класс тестирования текстового поля с автоматическим заполнением
 

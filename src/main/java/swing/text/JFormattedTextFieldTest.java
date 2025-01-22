@@ -1,4 +1,4 @@
-package differents.swing.text;
+package swing.text;
 
 // Пример использования поля JFormattedTextField
 import javax.swing.*;

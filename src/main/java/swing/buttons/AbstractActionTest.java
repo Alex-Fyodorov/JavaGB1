@@ -1,4 +1,4 @@
-package differents.swing.buttons;
+package swing.buttons;
 
 // Использование Action при создании кнопки
 

@@ -1,4 +1,4 @@
-package differents.swing.buttons;
+package swing.buttons;
 
 // Кнопки управления 
 

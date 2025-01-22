@@ -1,4 +1,4 @@
-package differents.swing.slider;
+package swing.slider;
 
 //Пример использования JProgressBar
 

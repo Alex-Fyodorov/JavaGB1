@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 // Swing пример использования стандартной модели дерева DefaultTreeModel
 // и узлов DefaultMutableTreeNode

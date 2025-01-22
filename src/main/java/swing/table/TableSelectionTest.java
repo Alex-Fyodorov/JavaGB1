@@ -1,4 +1,4 @@
-package differents.swing.table;
+package swing.table;
 
 // Пример выделения ячеек таблицы с использованием SelectionModel
 

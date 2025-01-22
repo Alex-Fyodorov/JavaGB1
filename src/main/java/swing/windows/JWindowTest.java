@@ -1,4 +1,4 @@
-package differents.swing.windows;
+package swing.windows;
 
 // ������ ������������� ���� ��� ����� JWindow
 import javax.swing.*;

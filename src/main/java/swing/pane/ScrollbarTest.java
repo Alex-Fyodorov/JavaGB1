@@ -1,4 +1,4 @@
-package differents.swing.pane;
+package swing.pane;
 
 // Пример работы с полосой прокрутки JScrollBar
 

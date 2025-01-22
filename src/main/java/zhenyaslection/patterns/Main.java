@@ -1,9 +1,9 @@
 package zhenyaslection.patterns;
 
-import differents.patterns.interfaces.Movable;
-import differents.patterns.models.ColoredPoint;
-import differents.patterns.models.Point;
-import differents.patterns.models.PointFactory;
+import zhenyaslection.patterns.interfaces.Movable;
+import zhenyaslection.patterns.models.ColoredPoint;
+import zhenyaslection.patterns.models.Point;
+import zhenyaslection.patterns.models.PointFactory;
 
 public class Main {
 

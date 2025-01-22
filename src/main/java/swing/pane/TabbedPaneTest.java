@@ -1,4 +1,4 @@
-package differents.swing.pane;
+package swing.pane;
 
 // Swing пример использования панели с вкладками JTabbedPane
 import javax.swing.*;

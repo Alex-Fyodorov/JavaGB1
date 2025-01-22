@@ -1,4 +1,4 @@
-package differents.swing.pane;
+package swing.pane;
 
 // Использование панелей прокрутки JScrollPane
 import javax.swing.*;

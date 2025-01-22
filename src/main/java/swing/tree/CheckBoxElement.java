@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 /**
  * Класс определения параметров элемента узла дерева 

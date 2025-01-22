@@ -1,4 +1,4 @@
-package differents.swing.tree;
+package swing.tree;
 
 // Использование JTree, TreeModel
 import java.util.*;

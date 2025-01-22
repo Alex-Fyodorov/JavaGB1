@@ -1,4 +1,4 @@
-package differents.swing.table;
+package swing.table;
 
 //Использование модели столбцов таблицы TableColumnModel
 

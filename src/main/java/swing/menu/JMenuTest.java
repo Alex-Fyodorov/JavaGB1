@@ -1,4 +1,4 @@
-package differents.swing.menu;
+package swing.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

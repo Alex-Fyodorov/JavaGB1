@@ -1,4 +1,4 @@
-package differents.swing.text;
+package swing.text;
 
 // Использование текстовых полей JTextField
 import javax.swing.*;

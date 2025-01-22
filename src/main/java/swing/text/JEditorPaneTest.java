@@ -1,4 +1,4 @@
-package differents.swing.text;
+package swing.text;
 
 // Браузер на основе редактора JEditorPane
 
