@@ -1,4 +1,6 @@
-package tictactoe;
+package tictactoe.front;
+
+import tictactoe.game.Game2;
 
 import javax.swing.*;
 import java.awt.*;

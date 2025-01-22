@@ -1,4 +1,4 @@
-package tictactoe;
+package tictactoe.front;
 
 import javax.swing.*;
 import java.awt.*;

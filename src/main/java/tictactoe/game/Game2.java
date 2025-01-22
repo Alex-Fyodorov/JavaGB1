@@ -1,4 +1,7 @@
-package tictactoe;
+package tictactoe.game;
+
+import tictactoe.models.Point;
+import tictactoe.models.Raw;
 
 import java.util.ArrayList;
 import java.util.List;
