@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Kapreckar {
 
+    // Программа, иллюстрирующая закон Капрекара.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
